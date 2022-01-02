@@ -22,7 +22,7 @@ configurar el directorio objetivo cambiando las variables linux dir y windows di
 
 # Como recibir la clave utilizando el bot de telegram
 Para ello hay que crear un bot de telegram y obtener el id del chat al que quieras enviar el mensaje
-![image](https://user-images.githubusercontent.com/90008286/147864664-8b18a0b2-1b50-4ec8-bf54-e53a3aed9d3b.png)
+![image](https://user-images.githubusercontent.com/90008286/147864796-59eeb4b4-a28e-4f82-a866-761ebd14d42d.png)
 
 Malware hecho con popositos educativos, utilizar este codigo con responsabilidad
 
