@@ -6,7 +6,7 @@ from datetime import datetime
 from tkinter import messagebox
 
 user = os.getlogin()
-Windows_dir = f'C:\\Users\\User\\OneDrive - INTEC\\Escritorio\\carpeta_totalmente_normal'
+Windows_dir = f'C:\\Users\\{user}'
 Linux_dir = '/home/'
 plataforma = platform.system()
 llave = Fernet.generate_key()
