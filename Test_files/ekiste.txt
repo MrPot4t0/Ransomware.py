@@ -1,0 +1,77 @@
+using System;
+using System.Collections.Generic;
+
+namespace practica_final
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("\tBienvenido al Supermecado Galaxy.");
+            List<Product> productos = new List<Product>();
+            double[] arr = new double[4];
+
+            Console.Write("Ingrese la cantidad de productos a ingresar: ");
+            int quan = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < quan; i++) {
+                Console.WriteLine("Producto #{0}: ", i+1);
+                Console.Write("\tNombre..: ");
+                string nombre = Console.ReadLine();
+                Console.Write("\tPrecio..: ");
+                double precio = double.Parse(Console.ReadLine());
+                Console.Write("\tCantidad: ");
+                int cantidad = int.Parse(Console.ReadLine());
+                arr[0] += cantidad;
+                arr[1] += precio;
+                arr[2] += cantidad * precio * 0.18;
+                arr[3] += (cantidad * precio) + (cantidad * precio * 0.18);
+                productos.Add(new Product(nombre,precio, cantidad));
+                Console.WriteLine("------------------------------");
+            }
+
+            Console.Clear();
+            Console.WriteLine("\tSupermecado Galaxy.\n");
+            Console.WriteLine("Cantidad de productos: {0}\n", quan);
+            Console.WriteLine($" {"Nombre".PadRight(10)}  {"Cantidad".PadRight(12)}  {"Precio".PadRight(14)}  {"ITBIS".PadRight(16)}  {"Total".PadRight(18)} ");
+            foreach (Product item in productos) {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("------------------------------------------------------------------------");
+            Console.WriteLine("Totales:\n\t- Cantidad: {0}\n\t- Precio: {1}\n\t- ITBIS: {2}\n\t- Total: {3}", arr[0],arr[1], arr[2], arr[3]);
+        }
+    }
+
+    class Product {
+        
+        private string Name;
+        private double Price;
+        private int Quantity;
+
+        public Product(string nombre, double precio, int cantidad) {
+            Name = nombre.ToLower();
+            Price = precio;
+            Quantity = cantidad;
+        }
+
+        public Double ITBIS() {
+            if (Name == "aguacate" || Name == "leche" || Name == "arroz") {
+                return 0;
+            }
+
+            return Quantity * Price * 0.18;
+        }
+
+        public Double Total() {
+            return (Quantity * Price) + ITBIS();
+        }
+
+        public override String ToString() {
+            return $"| {char.ToUpper(Name[0]) + Name.Substring(1).PadRight(10)} |" + 
+                    $" {Quantity.ToString().PadRight(10)} |" + 
+                    $" {Price.ToString().PadRight(10)} |" + 
+                    $" {Math.Round(ITBIS(), 3).ToString().PadRight(10)} |" + 
+                    $" {Math.Round(Total(), 3).ToString().PadRight(10)} |";
+        }
+    }
+}

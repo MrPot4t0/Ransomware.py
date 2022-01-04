@@ -1,0 +1,103 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Practica_final_1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Console.WriteLine("███████╗██╗   ██╗██████╗ ███████╗██████╗ ███╗   ███╗███████╗██████╗  ██████╗ █████╗ ██████╗  ██████╗");
+            Console.WriteLine("██╔════╝██║   ██║██╔══██╗██╔════╝██╔══██╗████╗ ████║██╔════╝██╔══██╗██╔════╝██╔══██╗██╔══██╗██╔═══██╗");
+            Console.WriteLine("███████╗██║   ██║██████╔╝█████╗  ██████╔╝██╔████╔██║█████╗  ██████╔╝██║     ███████║██║  ██║██║   ██║");
+            Console.WriteLine("╚════██║██║   ██║██╔═══╝ ██╔══╝  ██╔══██╗██║╚██╔╝██║██╔══╝  ██╔══██╗██║     ██╔══██║██║  ██║██║   ██║");
+            Console.WriteLine("███████║╚██████╔╝██║     ███████╗██║  ██║██║ ╚═╝ ██║███████╗██║  ██║╚██████╗██║  ██║██████╔╝╚██████╔╝");
+            Console.WriteLine("╚══════╝ ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═════╝  ╚═════╝ \n");
+            Console.WriteLine("            ██╗      █████╗      ██████╗ ██████╗  █████╗ ███████╗ █████╗                             ");
+            Console.WriteLine("            ██║     ██╔══██╗    ██╔════╝ ██╔══██╗██╔══██╗██╔════╝██╔══██╗ ");
+            Console.WriteLine("            ██║     ███████║    ██║  ███╗██████╔╝███████║███████╗███████║  ");
+            Console.WriteLine("            ██║     ██╔══██║    ██║   ██║██╔══██╗██╔══██║╚════██║██╔══██║ ");
+            Console.WriteLine("            ███████╗██║  ██║    ╚██████╔╝██║  ██║██║  ██║███████║██║  ██║ ");
+            Console.WriteLine("            ╚══════╝╚═╝  ╚═╝     ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ");
+            Console.WriteLine("Bienvenido al supermercado La grasa\nEl mejor supermercado en linea");
+            Console.WriteLine("Tenemos una infinidad  de productos disponibles en este momento\nIngrese la cantidad de productos que quiere");
+            int cantidad = int.Parse(Console.ReadLine());
+            List<Product> productos = new List<Product>();
+            double[] arr = new double[4];
+
+            for (int i = 0; i < cantidad; i++)
+            {
+                Console.WriteLine("producto#{0}", i + 1);
+                Console.WriteLine("nombre ---> ");
+                string nombre = Console.ReadLine();
+                Console.WriteLine("Cantidad ---> ");
+                int cant = int.Parse(Console.ReadLine());
+                Console.WriteLine("Precio --->");
+                double precio = Convert.ToDouble(Console.ReadLine());
+                arr[0] += cantidad;
+                arr[1] += precio;
+                arr[2] += cantidad * precio * 0.18;
+                arr[3] += (cantidad * precio) + (cantidad * precio * 0.18);
+                productos.Add(new Product(nombre, precio, cantidad));
+                Console.WriteLine("------------------------------");
+
+                Console.Clear();
+                Console.WriteLine("\tSupermercado La grasa\n");
+                Console.WriteLine("Cantidad de productos: {0}\n", cantidad);
+                Console.WriteLine($" {"Nombre".PadRight(10)}  {"Cantidad".PadRight(12)}  {"Precio".PadRight(14)}  {"ITBIS".PadRight(16)}  {"Total".PadRight(18)} ");
+                foreach (Product item in productos)
+                {
+                    Console.WriteLine(item);
+                }
+                Console.WriteLine("------------------------------------------------------------------------");
+
+            }
+            Console.WriteLine("Gracias por dejarte estafar :D");
+
+            Console.ReadKey();
+            }
+        }
+
+        class Product
+        {
+
+            private string Name;
+            private double Price;
+            private int Quantity;
+
+            public Product(string nombre, double precio, int cantidad)
+            {
+                Name = nombre.ToLower();
+                Price = precio;
+                Quantity = cantidad;
+            }
+
+            public Double ITBIS()
+            {
+                if (Name == "aguacate" || Name == "leche" || Name == "arroz" || Name == "perro")
+                {
+                    return 0;
+                }
+
+                return Quantity * Price * 0.18;
+            }
+
+            public Double Total()
+            {
+                return (Quantity * Price) + ITBIS();
+            }
+
+            public override String ToString()
+            {
+                return $"| {char.ToUpper(Name[0]) + Name.Substring(1).PadRight(10)} |" +
+                        $" {Quantity.ToString().PadRight(10)} |" +
+                        $" {Price.ToString().PadRight(10)} |" +
+                        $" {Math.Round(ITBIS(), 3).ToString().PadRight(10)} |" +
+                        $" {Math.Round(Total(), 3).ToString().PadRight(10)} |";
+            }
+        }
+    }   

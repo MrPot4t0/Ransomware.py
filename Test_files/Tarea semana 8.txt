@@ -1,0 +1,106 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace Week_8
+{
+    internal class Program
+    {
+
+        static void Main(string[] args)
+        {
+            int EEEE;
+            double Pi = 3.14159, QQQQ = 2;
+            //1 area de un cuadrado es igual a lado * lado
+            //2 area de un rectangulo: Largo por ancho
+            //3 area de un triangulo: base * altura / 2
+            //4 area de un circulo: 2 * pi * r
+            //5 area de un cono: area de su base + superficie lateral
+            //6 hipotenusa utilizando el teorema de pitagoras : (suma de los catetos) a^2 + b^2 = c^2
+            Console.WriteLine("Elige lo que quieres calcular, estas son mis opciones\n1) El area de un cuadrado\n2) Area de un rectangulo\n3) area de un triangulo \n4) Area de un circulo\n5) Area de un cono\n6) Hipotenusa usando teorema de pitagoras");
+            EEEE = int.Parse(Console.ReadLine());
+            double a, b, c;
+            switch(EEEE)
+            {
+                case 1:
+                    Console.WriteLine("Debes ingresar 2 lados del cuadrado\n");
+                    Console.WriteLine("Lado 1");
+                    a = Int32.Parse(Console.ReadLine());
+                    Console.WriteLine("Lado 2");
+                    b = Int32.Parse(Console.ReadLine());
+                    c = a * b;
+                    Console.WriteLine("la respuesta es {0}", c);
+                    break;
+                case 2:
+                    Console.WriteLine("Debes ingresar el largo y el ancho\nLado 1");
+                    a = Int32.Parse(Console.ReadLine());
+                    Console.WriteLine("Lado 2");
+                    b = Int32.Parse(Console.ReadLine());
+                    c = a * b;
+                    Console.WriteLine("La respuesta es {0}", c);
+                    break;
+                case 3:
+                    Console.WriteLine("Debes ingresar la base y la altura\nBase");
+                    a = Int32.Parse(Console.ReadLine());
+                    Console.WriteLine("Altura");
+                    b = Int32.Parse(Console.ReadLine());
+                    c = a * b / 2;
+                    Console.WriteLine("la respuesat es = {0}", c);
+                    break;
+                case 4:
+                    Console.WriteLine("Debes ingresar el radio\n");
+                    a = Int32.Parse(Console.ReadLine());
+                    c = QQQQ * Pi / 2;
+                    Console.WriteLine("La respuesta es = {0}", c);
+                    break;
+                case 5:
+                    Console.WriteLine("Debes ingresar la base y la superficie\nBase");
+                    a = Int32.Parse(Console.ReadLine());
+                    Console.WriteLine("Superficie");
+                    b = Int32.Parse(Console.ReadLine());
+                    c = a * b;
+                    Console.WriteLine("La respuesta es = {0}", c);
+                    break;
+
+                case 6:
+                    Console.WriteLine("Debes ingresar la longitud de dos lados\nLado 1");
+                    a = Int32.Parse(Console.ReadLine());
+                    Console.WriteLine("Lado 2");
+                    b = Int32.Parse(Console.ReadLine());
+                    c = a*2 + b * 2;
+                    Console.WriteLine("La respuesta es ={0}", c);
+                    break;
+                default:
+                    break;
+            }
+            Console.ReadKey();
+        }
+    }
+}
+███████╗██╗   ██╗██████╗ ███████╗██████╗ ███╗   ███╗███████╗██████╗  ██████╗ █████╗ ██████╗  ██████╗ 
+
+██╔════╝██║   ██║██╔══██╗██╔════╝██╔══██╗████╗ ████║██╔════╝██╔══██╗██╔════╝██╔══██╗██╔══██╗██╔═══██╗
+
+███████╗██║   ██║██████╔╝█████╗  ██████╔╝██╔████╔██║█████╗  ██████╔╝██║     ███████║██║  ██║██║   ██║
+
+╚════██║██║   ██║██╔═══╝ ██╔══╝  ██╔══██╗██║╚██╔╝██║██╔══╝  ██╔══██╗██║     ██╔══██║██║  ██║██║   ██║
+
+███████║╚██████╔╝██║     ███████╗██║  ██║██║ ╚═╝ ██║███████╗██║  ██║╚██████╗██║  ██║██████╔╝╚██████╔╝
+
+╚══════╝ ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═════╝  ╚═════╝ 
+                                                                                                     
+            ██╗      █████╗      ██████╗ ██████╗  █████╗ ███████╗ █████╗                             
+
+            ██║     ██╔══██╗    ██╔════╝ ██╔══██╗██╔══██╗██╔════╝██╔══██╗                            
+
+            ██║     ███████║    ██║  ███╗██████╔╝███████║███████╗███████║                            	
+
+            ██║     ██╔══██║    ██║   ██║██╔══██╗██╔══██║╚════██║██╔══██║                            
+
+            ███████╗██║  ██║    ╚██████╔╝██║  ██║██║  ██║███████║██║  ██║  
+                          
+            ╚══════╝╚═╝  ╚═╝     ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝                            
+                                                                                                     
